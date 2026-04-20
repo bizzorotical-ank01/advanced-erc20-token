@@ -67,9 +67,9 @@ This repository demonstrates how to:
 #### Cases:
 
 1. Vulnerable case (attack works)
-   ![Reentrancy Basic Test](assets\screenshots/reentrancy-basic.png)
+   ![Reentrancy Basic Test](assets/screenshots/reentrancy-basic.png)
 2. Fixed case (attack fails)
-   ![Reentrancy Fixed Test](assets\screenshots/reentrancy-fixed.png)
+   ![Reentrancy Fixed Test](assets/screenshots/reentrancy-fixed.png)
 
 ---
 
@@ -91,9 +91,9 @@ This repository demonstrates how to:
 #### Cases:
 
 1. Vulnerable case (attack works)
-![Access Control Basic Test](assets\screenshots/partial-tests.png)
+![Access Control Basic Test](assets/screenshots/partial-tests.png)
 2. Fixed case (attack fails)
-![Access Control Fixed Test](assets\screenshots/core-tests.png)
+![Access Control Fixed Test](assets/screenshots/core-tests.png)
 ---
 
 ### 3. Integer Overflow
@@ -114,9 +114,9 @@ This repository demonstrates how to:
 #### Cases:
 
 1. Vulnerable case (attack works)
-![Integer Overflow Basic Test](assets\screenshots/almost-full-tests.png)
+![Integer Overflow Basic Test](assets/screenshots/almost-full-tests.png)
 2. Fixed case (attack fails)
-![Integer Overflow Fixed Test](assets\screenshots/core-tests.png)
+![Integer Overflow Fixed Test](assets/screenshots/core-tests.png)
 ---
 
 ## Testing Strategy
