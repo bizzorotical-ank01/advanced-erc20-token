@@ -112,6 +112,7 @@ The contract sends ETH before updating balance, allowing repeated withdrawals.
    ![Reentrancy Basic Test](assets/screenshots/reentrancy-basic.png)
 2. Fixed case (attack fails)
    ![Reentrancy Fixed Test](assets/screenshots/reentrancy-fixed.png)
+<<<<<<< HEAD
 
 #### Frontend Show:
 
@@ -120,6 +121,8 @@ The contract sends ETH before updating balance, allowing repeated withdrawals.
 ![Reentrancy Attack Demo Done](assets/screenshots/reentancy-Demo-Attack-done.png)
 
 ![Reentrancy Attack Demo Confirmed](assets/screenshots/Reentrancy-Attack-Confirmed.png)
+=======
+>>>>>>> 6f99ed26573cd1ab819e4aad0667c66562ebf868
 
 ---
 
