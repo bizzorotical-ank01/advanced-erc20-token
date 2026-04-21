@@ -8,15 +8,15 @@ contract ReentrancyVulnerable {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw() external {
-        uint256 amount = balances[msg.sender];
+        function withdraw() public {
+        uint amount = balances[msg.sender];
 
-        require(amount > 0, "No funds");
+        require(amount > 0, "No balance");
 
-        // ❌ Vulnerability here
         (bool success, ) = msg.sender.call{value: amount}("");
-        require(success, "Failed");
+        require(success, "Transfer failed");
 
-        balances[msg.sender] = 0;
+        balances[msg.sender] = 0; // ❌ vulnerable
     }
+    receive() external payable {}
 }

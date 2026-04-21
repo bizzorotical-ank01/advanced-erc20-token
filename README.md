@@ -1,6 +1,19 @@
-# Smart Contract Audit Checklist
+<h1 align="center">Smart Contract Audit Checklist</h1>
 
-A hands-on smart contract security toolkit demonstrating real-world vulnerabilities, exploits, and fixes using Hardhat.
+<p align="center">
+  A security-focused project demonstrating real-world smart contract vulnerabilities and their fixes using Hardhat.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Solidity-0.8.x-blue" />
+  <img src="https://img.shields.io/badge/Framework-Hardhat-yellow" />
+  <img src="https://img.shields.io/badge/Tests-Passing-brightgreen" />
+  <img src="https://img.shields.io/badge/Status-Complete-success" />
+   <img src="https://img.shields.io/badge/Focus-Audit--Checklist-blue" />
+<img src="https://img.shields.io/badge/Security-Defensive-green" />
+<img src="https://img.shields.io/badge/Use--Case-Smart--Contract--Auditing-purple" />
+</p>
+
 
 ---
 
@@ -9,26 +22,39 @@ A hands-on smart contract security toolkit demonstrating real-world vulnerabilit
 smart-contract-audit-checklist/
 │
 ├── contracts/
-│   ├── Vulnerable/
+│   ├── vulnerable/
 │   │   ├── Reentrancy.sol
 │   │   ├── AccessControl.sol
 │   │   └── Overflow.sol
 │   │
-│   └── Fixed/
-│       ├── ReentrancyFixed.sol
-│       ├── AccessControlFixed.sol
-│       └── OverflowFixed.sol
+│   ├── fixed/
+│   │   ├── ReentrancyFixed.sol
+│   │   ├── AccessControlFixed.sol
+│   │   └── OverflowFixed.sol
+│   │
+│   └── attacker/              
+│       ├── ReentrancyAttack.sol
+│       └── AccessControlAttack.sol
+│
+├── scripts/
+│   ├── deploy.js              ✅ deploy + fund
+│   └── analyze.js
 │
 ├── test/
-│   ├── audit.test.js
-│   ├── access.test.js
+│   ├── reentrancy.test.js
+│   ├── access-control.test.js
 │   └── overflow.test.js
+│
+├── attacks/                   
+│   ├── reentrancy.md
+│   ├── access-control.md
+│   └── overflow.md
 │
 ├── checklist/
 │   └── audit-checklist.md
 │
-├── scripts/
-│   └── analyze.js
+├── frontend/                  
+│   └── ...
 │
 └── README.md
 
@@ -64,12 +90,36 @@ This repository demonstrates how to:
 - Use Checks-Effects-Interactions pattern
 - Use ReentrancyGuard
 
+#### Attack Demo:
+
+##### Steps
+1. Contract is funded with 5 ETH
+2. Attacker contract exploits reentrancy
+3. Funds are drained completely
+
+##### Result
+Before Attack: 5 ETH  
+After Attack: 0 ETH
+
+##### Vulnerability
+The contract sends ETH before updating balance, allowing repeated withdrawals.
+
+ ![Reentrancy Attack Demo](assets/screenshots/Reentrancy-Attack-Demo.png)
+
 #### Cases:
 
 1. Vulnerable case (attack works)
-   ![Reentrancy Basic Test](.\assets\screenshots/reentrancy-basic.png)
+   ![Reentrancy Basic Test](assets/screenshots/reentrancy-basic.png)
 2. Fixed case (attack fails)
-   ![Reentrancy Fixed Test](.\assets\screenshots/reentrancy-fixed.png)
+   ![Reentrancy Fixed Test](assets/screenshots/reentrancy-fixed.png)
+
+#### Frontend Show:
+
+![Reentrancy Attack Demo In processing](assets/screenshots/Reentancy-Attack-Demo-inprocessing.png)
+
+![Reentrancy Attack Demo Done](assets/screenshots/reentancy-Demo-Attack-done.png)
+
+![Reentrancy Attack Demo Confirmed](assets/screenshots/Reentrancy-Attack-Confirmed.png)
 
 ---
 
@@ -91,9 +141,9 @@ This repository demonstrates how to:
 #### Cases:
 
 1. Vulnerable case (attack works)
-![Access Control Basic Test](.\assets\screenshots/partial-tests.png)
+![Access Control Basic Test](assets/screenshots/partial-tests.png)
 2. Fixed case (attack fails)
-![Access Control Fixed Test](.\assets\screenshots/core-tests.png)
+![Access Control Fixed Test](assets/screenshots/core-tests.png)
 ---
 
 ### 3. Integer Overflow
@@ -114,9 +164,9 @@ This repository demonstrates how to:
 #### Cases:
 
 1. Vulnerable case (attack works)
-![Integer Overflow Basic Test](.\assets\screenshots/almost-full-tests.png)
+![Integer Overflow Basic Test](assets/screenshots/almost-full-tests.png)
 2. Fixed case (attack fails)
-![Integer Overflow Fixed Test](.\assets\screenshots/core-tests.png)
+![Integer Overflow Fixed Test](assets/screenshots/core-tests.png)
 ---
 
 ## Testing Strategy
@@ -163,6 +213,20 @@ checklist/audit-checklist.md
 - Secure Solidity development
 - Hardhat testing framework
 - Vulnerability reproduction & mitigation
+
+---
+
+## How to Run if you want frontend
+
+### 1. Start local node:
+npx hardhat node
+
+### 2. Deploy contracts:
+npx hardhat run scripts/deploy.js --network localhost
+
+### 3. Start frontend:
+cd frontend
+npm start
 
 ---
 
