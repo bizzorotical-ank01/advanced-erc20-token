@@ -16,9 +16,7 @@
 
 ## Simulation Attacks
 
-![Simulation Attack Demo](assets\demo\Attacks-Simulation.mp4)
-
-
+[Click here to watch the Simulation Attack](./assets/demo/Attacks-Simulation.mp4)
 
 ---
 
