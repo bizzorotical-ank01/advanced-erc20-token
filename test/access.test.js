@@ -12,13 +12,13 @@ describe("Access Control Attack", function () {
     await contract.waitForDeployment();
   });
 
-  // ❌ Vulnerable test (already working)
+  // Vulnerable test (already working)
   it("attacker should take ownership", async function () {
     await contract.connect(attacker).changeOwner(attacker.address);
     expect(await contract.owner()).to.equal(attacker.address);
   });
 
-  // ✅ ADD THIS HERE (fixed contract test)
+  //  (fixed contract test)
   it("should FAIL when attacker tries to take ownership", async function () {
     const Fixed = await ethers.getContractFactory("AccessControlFixed");
     const fixed = await Fixed.deploy();

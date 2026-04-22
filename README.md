@@ -14,49 +14,22 @@
 <img src="https://img.shields.io/badge/Use--Case-Smart--Contract--Auditing-purple" />
 </p>
 
+## Simulation Attacks
+
+https://github.com/bizzorotical-ank01/smart-contract-audit-checklist/blob/main/assets/demo/demo.mp4
 
 ---
 
-##  Project Structure
+## Overview
 
-smart-contract-audit-checklist/
-│
-├── contracts/
-│   ├── vulnerable/
-│   │   ├── Reentrancy.sol
-│   │   ├── AccessControl.sol
-│   │   └── Overflow.sol
-│   │
-│   ├── fixed/
-│   │   ├── ReentrancyFixed.sol
-│   │   ├── AccessControlFixed.sol
-│   │   └── OverflowFixed.sol
-│   │
-│   └── attacker/              
-│       ├── ReentrancyAttack.sol
-│       └── AccessControlAttack.sol
-│
-├── scripts/
-│   ├── deploy.js              ✅ deploy + fund
-│   └── analyze.js
-│
-├── test/
-│   ├── reentrancy.test.js
-│   ├── access-control.test.js
-│   └── overflow.test.js
-│
-├── attacks/                   
-│   ├── reentrancy.md
-│   ├── access-control.md
-│   └── overflow.md
-│
-├── checklist/
-│   └── audit-checklist.md
-│
-├── frontend/                  
-│   └── ...
-│
-└── README.md
+This project demonstrates how real-world smart contract vulnerabilities occur, how attackers exploit them, and how to properly fix them.
+
+It includes:
+- Vulnerable contracts
+- Exploit (attacker) contracts
+- Secure implementations
+- Automated tests
+- Interactive Web3 dashboard
 
 ---
 
@@ -116,6 +89,8 @@ The contract sends ETH before updating balance, allowing repeated withdrawals.
 
 #### Frontend Show:
 
+![Reentrancy Attack Dashboard](assets/screenshots/Reentrancy-Attack-Dashboard.png)
+
 ![Reentrancy Attack Demo In processing](assets/screenshots/Reentancy-Attack-Demo-inprocessing.png)
 
 ![Reentrancy Attack Demo Done](assets/screenshots/reentancy-Demo-Attack-done.png)
@@ -147,6 +122,17 @@ The contract sends ETH before updating balance, allowing repeated withdrawals.
 ![Access Control Basic Test](assets/screenshots/partial-tests.png)
 2. Fixed case (attack fails)
 ![Access Control Fixed Test](assets/screenshots/core-tests.png)
+
+#### Frontend Show:
+
+![Access Control Attack Dashboard](assets/screenshots/AccessControl-Attack-Dashboard.png)
+
+![Access Control Attack Demo In processing](assets/screenshots/AccessControl-Attack-Demo-inprocessing.png)
+
+![Access Control Attack Demo Done](assets/screenshots/AccessControl-Attack-Demo-done.png)
+
+![Access Control Attack Demo Confirmed](assets/screenshots/AccessControl-Attack-Confirmed.png)
+
 ---
 
 ### 3. Integer Overflow
@@ -170,6 +156,16 @@ The contract sends ETH before updating balance, allowing repeated withdrawals.
 ![Integer Overflow Basic Test](assets/screenshots/almost-full-tests.png)
 2. Fixed case (attack fails)
 ![Integer Overflow Fixed Test](assets/screenshots/core-tests.png)
+
+#### Frontend Show:
+
+![Overflow Attack Dashboard](assets/screenshots/Overflow-Attack-Dashboard.png)
+
+![Overflow Attack Demo In processing](assets/screenshots/Overflow-Attack-Demo-inprocessing.png)
+
+![Overflow Attack Demo Tranaction In processing](assets/screenshots/Overflow-Attack-Demo-inprocessing-transaction.png)
+
+![Overflow Attack Demo Confirmed](assets/screenshots/Overflow-Attack-Confirmed.png)
 ---
 
 ## Testing Strategy
@@ -235,15 +231,20 @@ npm start
 
 ## Acknowledgement
 
-This project was developed by @bizzorotical-ank01 as part of a focused journey into smart contract security and auditing.
+This project was developed by @bizzorotical-ank01 as part of a focused journey into smart contract security and auditing through practical, real-world simulations..
 
-It is designed for educational and practical purposes, simulating real-world DeFi vulnerabilities to help developers understand:
+This project is designed as a hands-on security lab for developers who want to:
 
-- How security flaws occur in smart contracts
-- How attackers exploit these vulnerabilities
-- How to implement secure and robust fixes
+- Think like an attacker
+- Build like a defender
+- Audit like a professional
 
-This repository serves as a hands-on learning resource for developers aiming to improve their skills in smart contract security and auditing.
+This is now:
+
+- ✅ Portfolio-ready  
+- ✅ Recruiter-friendly  
+- ✅ Clean & professional  
+- ✅ “Production Web3 project” level  
 
 Feel free to explore the code and documentation in this repository.
 

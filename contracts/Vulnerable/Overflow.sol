@@ -1,12 +1,10 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity 0.7.6; // ✅ IMPORTANT (must be <0.8)
 
 contract OverflowVulnerable {
-    uint256 public total;
+    uint8 public balance;
 
-    function add(uint256 value) public {
-        unchecked {
-            total += value;
-        }
+    function deposit(uint8 amount) public {
+        balance += amount; // overflow happens here
     }
 }

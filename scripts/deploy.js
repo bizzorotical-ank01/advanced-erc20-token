@@ -28,6 +28,29 @@ async function main() {
 
   const attackerAddress = await attacker.getAddress();
   console.log("Attacker deployed to:", attackerAddress);
+
+  // Deploy Access Control Vulnerable
+const Access = await ethers.getContractFactory("AccessControlVulnerable");
+const access = await Access.deploy();
+await access.waitForDeployment();
+
+const accessAddress = await access.getAddress();
+console.log("AccessControl deployed to:", accessAddress);
+
+// Deploy Access Control attacker
+const AccessAttack = await ethers.getContractFactory("AccessControlAttack");
+const accessAttack = await AccessAttack.deploy(accessAddress);
+await accessAttack.waitForDeployment();
+
+const accessAttackAddress = await accessAttack.getAddress();
+console.log("AccessControl Attacker:", accessAttackAddress);
+
+//Deploy Overflow
+const Overflow = await ethers.getContractFactory("OverflowVulnerable");
+const overflow = await Overflow.deploy();
+await overflow.waitForDeployment();
+console.log("Overflow deployed to:", await overflow.getAddress());
+
 }
 
 // ✅ THIS WAS MISSING
